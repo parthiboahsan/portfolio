@@ -1,0 +1,273 @@
+/* ==================== NEW TBS STYLE HEADER (STICKY & SHRINK) ==================== */
+/* হেডারকে ফুল উইডথ এবং মেনুর কালার #00141a করা হয়েছে */
+.tbs-header {
+    background-color: #00141a; /* আপনার দেওয়া কালার */
+    color: #ffffff;
+    border-bottom: 1px solid #1a334d;
+    padding: 18px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: padding 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    width: 100%;
+}
+
+/* স্ক্রল করলে হেডার মাঝারি ছোট হবে */
+.tbs-header.scrolled {
+    padding: 10px 0;
+    background-color: #00141a; /* স্ক্রল করলেও কালার একই থাকবে */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.tbs-header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    transition: gap 0.3s ease;
+}
+
+.tbs-header.scrolled .container {
+    gap: 15px;
+}
+
+.tbs-logo-area {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    transition: gap 0.3s ease;
+}
+
+.tbs-logo img {
+    max-width: 180px;
+    max-height: 54px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    transition: max-width 0.3s ease, max-height 0.3s ease;
+}
+
+/* স্ক্রল করলে লোগো মাঝারি ছোট হবে */
+.tbs-header.scrolled .tbs-logo img {
+    max-width: 130px;
+    max-height: 40px;
+}
+
+.tbs-date-area {
+    color: #a0b2c6;
+    font-size: 13px;
+    line-height: 1.3;
+    border-left: 1px solid #334a60;
+    padding-left: 20px;
+    transition: opacity 0.25s ease, padding 0.25s ease, margin 0.25s ease;
+    white-space: nowrap;
+}
+
+/* স্ক্রল করলে তারিখ লুকাবে */
+.tbs-header.scrolled .tbs-date-area {
+    opacity: 0;
+    visibility: hidden;
+    width: 0;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    border-left: none;
+}
+
+.tbs-menu-wrapper {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.tbs-nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    transition: gap 0.3s ease;
+}
+
+.tbs-nav-menu a {
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    white-space: nowrap;
+    line-height: 1;
+    padding: 6px 0;
+    transition: color 0.2s, font-size 0.3s, padding 0.3s;
+}
+
+.tbs-nav-menu a:hover {
+    color: #fbbf24;
+}
+
+/* স্ক্রল করলে মেনু সামান্য কম্প্যাক্ট হবে */
+.tbs-header.scrolled .tbs-nav-menu {
+    gap: 20px;
+}
+
+.tbs-header.scrolled .tbs-nav-menu a {
+    font-size: 15px;
+    padding: 5px 0;
+}
+
+.tbs-right-area {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: gap 0.3s ease;
+}
+
+.tbs-header.scrolled .tbs-right-area {
+    gap: 12px;
+}
+
+.tbs-search-btn {
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 5px;
+    line-height: 1;
+    transition: color 0.2s, font-size 0.3s, padding 0.3s;
+}
+
+.tbs-header.scrolled .tbs-search-btn {
+    font-size: 17px;
+    padding: 4px;
+}
+
+.tbs-search-btn:hover {
+    color: #fbbf24;
+}
+
+/* ==================== CUSTOM MOBILE MENU BUTTON ==================== */
+.tbs-custom-menu-btn {
+    display: none;
+    background-color: #1a1005;
+    border: 1px solid #3d2a14;
+    border-radius: 12px;
+    width: 44px;
+    height: 44px;
+    cursor: pointer;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.tbs-custom-menu-btn:hover {
+    background-color: #26180a;
+    border-color: #f97316;
+}
+
+.custom-hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 20px;
+    height: 14px;
+    position: relative;
+}
+
+.custom-hamburger span {
+    display: block;
+    width: 100%;
+    height: 2.5px;
+    background-color: #f97316;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    transform-origin: center;
+}
+
+@media (max-width: 992px) {
+    .tbs-header .container {
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 10px;
+    }
+    
+    .tbs-logo-area { 
+        order: 1; 
+    }
+
+    .tbs-custom-menu-btn {
+        display: flex;
+        order: 2;
+        margin-left: auto;
+    }
+    
+    .tbs-right-area { 
+        order: 3; 
+    }
+    
+    .tbs-date-area { 
+        display: none; 
+    }
+
+    .tbs-menu-wrapper {
+        order: 4;
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.35s ease, padding 0.35s ease, margin 0.35s ease;
+        padding-top: 0;
+        margin-top: 0;
+        border-top: none;
+        justify-content: flex-start;
+    }
+
+    .tbs-menu-wrapper.open {
+        max-height: 400px;
+        overflow-x: auto;
+        padding-top: 12px;
+        margin-top: 8px;
+        border-top: 1px solid #1a334d;
+    }
+
+    .tbs-nav-menu {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        width: 100%;
+        padding-bottom: 8px;
+    }
+
+    .tbs-nav-menu a {
+        display: block;
+        width: 100%;
+        padding: 10px 0;
+        font-size: 15px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .tbs-nav-menu a:last-child {
+        border-bottom: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .tbs-logo img { max-width: 150px; }
+    .tbs-header.scrolled .tbs-logo img { max-width: 120px; }
+}
+
+.tbs-custom-menu-btn.active .custom-hamburger span:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+}
+.tbs-custom-menu-btn.active .custom-hamburger span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+}
+.tbs-custom-menu-btn.active .custom-hamburger span:nth-child(3) {
+    transform: translateY(-5.5px) rotate(-45deg);
+}
